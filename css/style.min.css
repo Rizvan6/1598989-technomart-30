@@ -2,7 +2,8 @@
   font-family: "Cuprum";
   font-weight: 400;
   font-style: normal;
-  src: local("Cuprum Regular"), url(../fonts/cuprum.woff2) format("woff2"), url(../fonts/cuprum.woff) format("woff");
+  src: local("Cuprum Regular"), url(../fonts/cuprum.woff2) format("woff2"),
+    url(../fonts/cuprum.woff) format("woff");
 }
 @font-face {
   font-family: "Cuprum";
@@ -22,14 +23,16 @@
   font-family: "Cuprum";
   font-weight: 700;
   font-style: italic;
-  src: local("Coprum Bold Italic"), url(../fonts/cuprumbolditalic.woff2) format("woff2"),
+  src: local("Coprum Bold Italic"),
+    url(../fonts/cuprumbolditalic.woff2) format("woff2"),
     url(../fonts/cuprumbolditalic.woff) format("woff");
 }
 @font-face {
   font-family: "PT Sans";
   font-weight: 400;
   font-style: normal;
-  src: local("PT Sans"), url(../fonts/ptsans.woff2) format("woff2"), url(../fonts/ptsans.woff) format("woff");
+  src: local("PT Sans"), url(../fonts/ptsans.woff2) format("woff2"),
+    url(../fonts/ptsans.woff) format("woff");
 }
 @font-face {
   font-family: "PT Sans";
@@ -95,7 +98,7 @@ html {
 .page-body {
   font-size: 13px;
   line-height: 24px;
-  min-width: 1200px;
+  min-width: 960px;
   margin: 0;
   padding: 0;
   color: var(--basic-black);
@@ -395,6 +398,7 @@ img {
   color: var(--basic-black);
   background-color: var(--basic-white);
   display: inline-block;
+  vertical-align: top;
 }
 .sign-in-button {
   position: relative;
@@ -517,6 +521,7 @@ img {
   color: var(--basic-white);
   padding: 17px 28px 20px;
   display: inline-block;
+  vertical-align: top;
 }
 .header-nav-link:hover {
   background-color: var(--background-dark);
@@ -625,6 +630,9 @@ img {
   font-size: 24px;
   line-height: 30px;
   color: var(--basic-white);
+  width: 135px;
+  white-space: nowrap;
+  overflow-x: hidden;
 }
 .category-icon {
   max-width: 80px;
@@ -640,8 +648,11 @@ img {
   color: var(--basic-white);
   background-color: rgba(255, 255, 255, 0.3);
   display: inline-block;
+  vertical-align: top;
   padding: 10px 0;
   width: 135px;
+  white-space: nowrap;
+  overflow-x: hidden;
 }
 .category-link:hover {
   background-color: rgba(197, 197, 197, 0.3);
@@ -680,6 +691,7 @@ img {
 .category-slide-active {
   display: block;
   padding: 23px 20px 27px 24px;
+  overflow-x: hidden;
 }
 .category-slide-desc {
   margin-bottom: 113px;
@@ -687,17 +699,21 @@ img {
 .category-slide .button {
   width: 192px;
 }
+.category-slide-text,
+.category-slide-title {
+  color: var(--basic-white);
+  white-space: nowrap;
+  overflow-x: hidden;
+}
 .category-slide-title {
   font-weight: 700;
   font-size: 36px;
   line-height: 36px;
   text-transform: uppercase;
-  color: var(--basic-white);
   margin-bottom: 5px;
 }
 .category-slide-text {
   font-size: 18px;
-  color: var(--basic-white);
 }
 .category-slider-controls {
   position: absolute;
@@ -749,7 +765,7 @@ img {
   line-height: 18px;
   color: var(--basic-white);
   text-transform: uppercase;
-  vertical-align: middle;
+  vertical-align: top;
   text-align: center;
   display: inline-block;
   border: 0;
@@ -937,6 +953,7 @@ img {
   -ms-flex-pack: justify;
   justify-content: space-between;
   height: 119px;
+  width: 220px;
   padding: 0 17px 0 18px;
   margin-top: 10px;
   margin-bottom: 21px;
@@ -949,6 +966,8 @@ img {
   line-height: 20px;
   text-align: center;
   color: var(--basic-black);
+  display: inline-block;
+  vertical-align: top;
 }
 .product-name-uppercase {
   text-transform: uppercase;
@@ -1148,6 +1167,7 @@ img {
   padding: 10px;
   border-radius: 2px;
   width: 95px;
+  -moz-appearance: textfield;
 }
 .price-controls::after {
   content: "";
@@ -1158,13 +1178,14 @@ img {
   top: 19px;
   left: 105px;
 }
+.price-input::-webkit-inner-spin-button,
 .price-input::-webkit-outer-spin-button {
-  display: none;
+  -webkit-appearance: none;
   margin: 0;
 }
-.price-input::-webkit-inner-spin-button {
-  display: none;
-  margin: 0;
+.price-input:focus,
+.price-input:hover {
+  -moz-appearance: number-input;
 }
 .price-input::-webkit-input-placeholder {
   color: var(--basic-black);
@@ -1377,6 +1398,7 @@ img {
   border: 1px solid var(--border-grey-button);
   border-radius: 2px;
   display: inline-block;
+  vertical-align: top;
   padding: 10px 15px;
 }
 .pagination-switch .pagination-link {
@@ -1523,8 +1545,10 @@ img {
   text-align: start;
   background-color: var(--basic-darkblue);
   border: 0;
-  -webkit-box-shadow: 0 1px 0 var(--background-dark), inset 0 1px 0 var(--button-dark-blue-shadow);
-  box-shadow: 0 1px 0 var(--background-dark), inset 0 1px 0 var(--button-dark-blue-shadow);
+  -webkit-box-shadow: 0 1px 0 var(--background-dark),
+    inset 0 1px 0 var(--button-dark-blue-shadow);
+  box-shadow: 0 1px 0 var(--background-dark),
+    inset 0 1px 0 var(--button-dark-blue-shadow);
   height: 61px;
   width: 240px;
   padding-left: 22px;
@@ -1902,6 +1926,7 @@ img {
 }
 .modal-narrow-background .button {
   display: inline-block;
+  vertical-align: top;
   width: 100%;
 }
 .modal-input::-webkit-input-placeholder {
